@@ -3,7 +3,7 @@
  *It includes the database management system's loop and the declaration statement.
  *
  *IMPORTANT PLEASE READ BELOW
- *TO RUN THE CODE, COPY THIS INTO CONSOLE AND ENTER: gcc -o student_db main.c 1open.c 2showall.c 3insert.c 4query.c 5update.c 6delete.c 7save.c 8sort.c 9summary.c audit.c index.c
+ *TO RUN THE CODE, COPY THIS INTO CONSOLE AND ENTER: gcc -o student_db main.c open.c showall.c insert.c query.c update.c delete.c save.c sort.c summary.c audit.c index.c
  *ENSURE THAT YOUR TERMINAL IS IN THE CORRECT DIRECTORY WHERE THE FILES ARE LOCATED
  *THEN, RUN THE PROGRAM WITH: ./student_db
 */

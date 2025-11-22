@@ -1,6 +1,6 @@
 /*
  * OPERATION 8: Sort Function
- * This function sorts the student records by ID or mark, in ascending order.
+ * This function sorts the student records by ID or mark, in ascending/descending order.
 */
 
 #define _CRT_SECURE_NO_WARNINGS

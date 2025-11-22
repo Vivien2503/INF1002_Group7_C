@@ -53,8 +53,11 @@ void deleteRecord(void) {
         audit_log("DELETE", NULL, NULL, "FAIL(INVALID_CONFIRMATION)");
         return;
     }
+    
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF) {} // clears the input buffer after reading confirmation
 
-    if (confirm == 'y' || confirm == 'Y') { // deletion confirmation
+    if (confirm == 'y' || confirm == 'Y') {
         audit_log("DELETE", &records[i], NULL, "SUCCESS");
 
         j = i;
@@ -68,7 +71,12 @@ void deleteRecord(void) {
 
         printf("Record deleted successfully.\n");
     }
-    else {
+    else if (confirm == 'n' || confirm == 'N') {
         printf("Deletion cancelled.\n");
+        audit_log("DELETE", NULL, NULL, "CANCELLED");
+    }
+    else {
+        printf("Input error. Deletion cancelled.\n");
+        audit_log("DELETE", NULL, NULL, "FAIL(INVALID_CONFIRMATION)");
     }
 }

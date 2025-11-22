@@ -12,8 +12,14 @@ void queryRecord(void) {
     int found;
     int pos;
 
-    printf("Enter student ID to search: "); // prompt for student ID
-    scanf("%d", &searchId);
+    printf("Enter student ID to search: ");
+    if (scanf("%d", &searchId) != 1) {
+        printf("Invalid input. Please enter a valid student ID.\n");
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF) {}
+        audit_log("QUERY", NULL, NULL, "INVALID_INPUT");
+        return;
+    }
 
     if (index_get(searchId, &pos)) {
         printf("\nFound Record:\n");

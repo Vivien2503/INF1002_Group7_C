@@ -14,7 +14,13 @@ void insertRecord(void) {
     int pos;
 
     printf("Enter student ID: ");
-    scanf("%d", &newId);
+    if (scanf("%d", &newId) != 1) {
+        printf("Error: Invalid input. Please enter a numeric ID.\n");
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF) {}
+        audit_log("INSERT", NULL, NULL, "FAIL(INVALID_INPUT)");
+        return;
+    }
     getchar();
 
     duplicate = 0;
@@ -65,7 +71,13 @@ void insertRecord(void) {
     }
     // insert mark
     printf("Enter mark: ");
-    scanf("%f", &records[recordCount].mark);
+    if (scanf("%f", &records[recordCount].mark) != 1) {
+        printf("Error: Invalid input. Please enter a numeric mark.\n");
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF) {}
+        audit_log("INSERT", NULL, NULL, "FAIL(INVALID_INPUT)");
+        return;
+    }
 
     index_put(newId, recordCount);
     audit_log("INSERT", NULL, &records[recordCount], "SUCCESS");

@@ -14,8 +14,15 @@ void deleteRecord(void) {
     char confirm;
     int pos;
 
-    printf("Enter student ID to delete: "); // prompt for student ID
-    scanf("%d", &searchId);
+//prompt for student ID including error handling
+    printf("Enter student ID to delete: ");
+    if (scanf("%d", &searchId) != 1) {
+        printf("Invalid input. Operation cancelled.\n");
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF) {}
+        audit_log("DELETE", NULL, NULL, "FAIL(INVALID_INPUT)");
+        return;
+    }
 
     found = 0;
     if (index_get(searchId, &pos)) {
@@ -33,12 +40,19 @@ void deleteRecord(void) {
     }
 
     if (found == 0) {
-        printf("Record not found.\n"); // error if record not found
+        printf("Record not found.\n");
+        audit_log("DELETE", NULL, NULL, "FAIL(NOT_FOUND)");
         return;
     }
 
-    printf("Are you sure you want to delete this record? (y/n): "); // prompt for confirmation
-    scanf(" %c", &confirm);
+    printf("Are you sure you want to delete this record? (y/n): ");
+    if (scanf(" %c", &confirm) != 1) {
+        printf("Input error. Deletion cancelled.\n");
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF) {}
+        audit_log("DELETE", NULL, NULL, "FAIL(INVALID_CONFIRMATION)");
+        return;
+    }
 
     if (confirm == 'y' || confirm == 'Y') { // deletion confirmation
         audit_log("DELETE", &records[i], NULL, "SUCCESS");

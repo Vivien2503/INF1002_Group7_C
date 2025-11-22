@@ -15,8 +15,14 @@ void updateRecord(void) {
     float newMark;
     int pos;
 
-    printf("Enter student ID to update: "); // prompt
-    scanf("%d", &searchId);
+    printf("Enter student ID to update: ");
+    if (scanf("%d", &searchId) != 1) {
+        printf("Invalid input. Update cancelled.\n");
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF) {}
+        audit_log("UPDATE", NULL, NULL, "FAIL(INVALID_INPUT)");
+        return;
+    }
     getchar();
 
     found = 0;
@@ -85,7 +91,12 @@ void updateRecord(void) {
 
     // new mark
     printf("Enter new mark (or -1 to skip): ");
-    scanf("%f", &newMark);
+    if (scanf("%f", &newMark) != 1) {
+        printf("Invalid input. Mark not updated.\n");
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF) {}
+        newMark = -1;
+    }
 
     if (newMark >= 0) {
         records[i].mark = newMark;

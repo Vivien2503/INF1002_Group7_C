@@ -11,7 +11,7 @@
 #define MAX_RECORDS 100
 #define MAX_NAME_LEN 40
 #define MAX_PROG_LEN 40
-#define FILENAME "Sample-CMS.txt"
+#define FILENAME "P13_7-CMS.txt"
 
 typedef struct {
     int id;

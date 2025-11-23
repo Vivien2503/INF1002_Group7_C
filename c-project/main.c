@@ -42,7 +42,7 @@ void showDeclaration(void) { // printing of declaration statement at start of pr
     printf("3. Donavan Padrick Sitinjak\n");
     printf("4. Tristan Foo\n");
     printf("5. Vivien Tan\n");
-    printf("Date: \n\n");
+    printf("Date: 23 November 2025 \n\n");
     printf("Press Enter to continue...");
     getchar();
     printf("\n");

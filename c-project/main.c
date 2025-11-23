@@ -4,8 +4,16 @@
  *
  *IMPORTANT PLEASE READ BELOW
  *TO RUN THE CODE, COPY THIS INTO CONSOLE AND ENTER: gcc -o student_db main.c open.c showall.c insert.c query.c update.c delete.c save.c sort.c summary.c audit.c index.c
- *ENSURE THAT YOUR TERMINAL IS IN THE CORRECT DIRECTORY WHERE THE FILES ARE LOCATED
+ *ENSURE THAT YOUR TERMINAL IS IN THE CORRECT DIRECTORY WHERE THE FILES ARE LOCATED.
  *THEN, RUN THE PROGRAM WITH: ./student_db
+ *
+ *FOR VSC COMMUNITY 2022, RUN FROM TERMINAL SIMILARLY TO ABOVE.
+ *
+ *IF YOU ARE UNABLE TO OPEN THE DATABASE .TXT FILE:
+ *CREATE NEW FOLDER, COPY .TXT FILE TO THE PROJECT.
+ *Copy .txt file to <Project Folder> as per new project created.
+ *Ensure all functions are under source files, to prevent errors. 
+ *Ensure database (.txt) is in the project folder in order for program to run.
 */
 
 
@@ -18,9 +26,9 @@ StudentRecord records[MAX_RECORDS];
 int recordCount = 0;
 
 void showDeclaration(void) { // printing of declaration statement at start of program
-    printf("========================================\n");
+    printf("\n");
     printf("              Declaration               \n");
-    printf("========================================\n\n");
+    printf("\n");
     printf("SIT's policy on copying does not allow the students to copy source code as well as assessment solutions\n");
     printf("from another person AI or other places. It is the students' responsibility to guarantee that their\n");
     printf("assessment solutions are their own work. Meanwhile, the students must also ensure that their work is\n");

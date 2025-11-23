@@ -18,9 +18,9 @@ StudentRecord records[MAX_RECORDS];
 int recordCount = 0;
 
 void showDeclaration(void) { // printing of declaration statement at start of program
-    printf("========================================\n");
+    printf("\n");
     printf("              Declaration               \n");
-    printf("========================================\n\n");
+    printf("\n\n");
     printf("SIT's policy on copying does not allow the students to copy source code as well as assessment solutions\n");
     printf("from another person AI or other places. It is the students' responsibility to guarantee that their\n");
     printf("assessment solutions are their own work. Meanwhile, the students must also ensure that their work is\n");
